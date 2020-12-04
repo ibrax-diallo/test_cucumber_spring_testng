@@ -19,4 +19,13 @@ public class Abonne extends BaseEntity {
 
     private String adresse;
 
+    public Abonne(String nom, String prenom, String adresse) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.prenom = prenom;
+    }
+
+    public Abonne() {
+
+    }
 }
