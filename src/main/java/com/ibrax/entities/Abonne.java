@@ -2,8 +2,7 @@ package com.ibrax.entities;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author Ibrahima Diallo <ibrahima.diallo2@university-365.com>
@@ -19,13 +18,5 @@ public class Abonne extends BaseEntity {
 
     private String adresse;
 
-    public Abonne(String nom, String prenom, String adresse) {
-        this.nom = nom;
-        this.adresse = adresse;
-        this.prenom = prenom;
-    }
 
-    public Abonne() {
-
-    }
 }

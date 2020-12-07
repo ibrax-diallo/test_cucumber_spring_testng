@@ -1,7 +1,9 @@
 package com.ibrax.controllers;
 
 import com.ibrax.dto.request.ContratDTO;
+import com.ibrax.dto.response.DefaultResponse;
 import com.ibrax.services.ContratService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +24,9 @@ public class ContratController {
 
     @PostMapping("/")
     public ResponseEntity<?> create(@RequestBody ContratDTO contrat) {
-        return contratService.create(contrat);
+        if (contrat == null) {
+            return new ResponseEntity<>(new DefaultResponse("Cannot create a contract with empty fields"), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(contratService.create(contrat), HttpStatus.OK);
     }
 }
